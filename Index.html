@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Series de fourier</title>
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="js/Fourier.js"></script>
+	<script type="text/javascript" src="js/Armonico.js"></script>
+	<script type="text/javascript" src="js/GraphSum.js"></script>
+	<script type="text/javascript" src="js/GraphArm.js"></script>
+	<script type="text/javascript" src="js/Controles.js"></script>
+</head>
+
+<body>
+	<header>
+		<h1>SERIES DE FOURIER</h1>
+	</header>
+	<section id="Contenido">
+		<section class="dos" id="informacion">
+			<section id="Instrucciones">
+				<h1>Intrucciones</h1>
+				<h4>
+					<p>Esta pagina web tiene como fin graficar una serie de fourier dado los datos necesarios: bps, ancho de banda y un caracter.</p>
+					<p>Al colocar los datos, hay ciertas recomendaciones que se deben tener en cuenta:</p>
+					<p>- Se recomienda que el valor de los bps sea mayor que 240</p>
+					<p>- El ancho de banda se va a expresar en Kilohertz(kHz), se recomienda que el valor sea menor que 3</p>
+					<p>- Solo se puede colocar un caracter a la vez y este se debe encontrar dentro de los establecidos en el codigo ASCII</p>
+					<p>Despues de colocar los datos, podrá oprimir el botón de "Calcular armonicos", este le mostrara en los cuadros de texto de la seccion de Datos, la información de los armonicos que se generaron con los datos ingresados. </p>
+					<p>Por ultimo, si quiere ver una grafica que muestre los armonicos de la serie de fourier, oprima el botón de "Graficar". Este solo funcionara despues de que se haya obtenido la información de la sección de Datos. </p>
+					<p>Para mirar los armonicos con mas detalle, puede utilizar las flechas del teclado para mover la grafica </p>
+					<p>El numero maximo de armonicos que se pueden graficar son 100 </p>
+				</h4>
+			</section>
+			<section id="Controles">
+				<h1>Controles</h1>
+				<section id="ControlesD">
+					<p class="pControles">BPS: </p>
+					<p class="pControles">Ancho de banda: </p>
+					<p class="pControles">Caracter: </p>
+				</section>
+				
+				<section id="ControlesT">
+					<input type="text" name="text1" id="bps" class="pContT" />
+					<input type="text" name="text1" id="anchoBanda" class="pContT"/>
+					<input type="text" name="text1" id="carac" class="pContT"/>
+				</section>
+				
+				<section id="Botones">
+					<input type="button" value="Calcular armonicos" onClick="llegadaDatos()" class="button"/>
+					<input type="button" value="Graficar" onClick="graficarFourier()" class="button"/>
+					<input type="button" value="Limpiar" onClick="limpiarGraficas()" class="button"/>
+				</section>
+			</section>
+
+		</section>
+
+		<section id="Datos">
+			<h1>Datos</h1>
+			<section id="tipos">
+				<p class="pDatos" >Numero de armonicos: </p>
+				<p class="pDatos" >Primer armonico: </p>
+				<p class="pDatos" >Valor decimal: </p>
+				<p class="pDatos" >Binario: </p>
+				<p class="pDatos" >Periodo: </p>
+				<p class="pDatos" >dc: </p>
+				<p class="pDatos" >f: </p>
+			</section>
+			<section id="textbox">
+				<input type="text" readonly name="text1" id="numArmonicos" class="pTextbox"  />
+				<input type="text" readonly name="text1" id="frecuencia" class="pTextbox" />
+				<input type="text" readonly name="text1" id="decimal" class="pTextbox" />
+				<input type="text" readonly name="text1" id="binario" class="pTextbox" />
+				<input type="text" readonly name="text1" id="periodo" class="pTextbox"  />
+				<input type="text" readonly name="text1" id="dc" class="pTextbox" />
+				<input type="text" readonly name="text1" id="f" class="pTextbox" />
+			</section>
+		</section>
+		
+	</section>
+	<section id="Graficas">
+		<section id="Armonicos">
+			<h1>Armonicos</h1>
+
+
+			<canvas id="armonicos" width="600" height="600"></canvas>
+		</section>
+		<section id="SumaFur">
+			<h1>Sumatoria de fourier</h1>
+			<input type="button" value="arriba" onClick="arriba()" class="button"/>
+			<input type="button" value="abajo" onClick="abajo()" class="button"/>
+			<input type="button" value="izquierda" onClick="izquierda()" class="button"/>
+			<input type="button" value="derecha" onClick="derecha()" class="button"/>
+			<canvas id="suma" width="600" height="600" ></canvas>
+		</section>
+	</section>
+</body>
+
+</html>
